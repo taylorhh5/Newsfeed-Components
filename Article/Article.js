@@ -125,7 +125,7 @@ const article = document.querySelector(".articles");
 
 data.forEach(data => {
   
-  article.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+  article.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph, data.new))
 })
 
 
@@ -160,20 +160,11 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
   p1.textContent = firstParagraph
   p2.textContent = secondParagraph
   p3.textContent = thirdParagraph
-
+  button.textContent ="Click to open";
   button.addEventListener('click', e => {
-article.classlist.toggle('article-open')
+article.classList.toggle("article-open")
   })
    return article
   }
- 
-//   <div class="article">
-//   <h2>{title of the article}</h2>
-//   <p class="date">{date of the article}</p>
-
-//   {three separate paragraph elements}
-
-//   <span class='expandButton'></span>
-// </div>
 
 })
