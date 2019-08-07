@@ -99,6 +99,13 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
+////////////////
+
+
+
+
+
+
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
@@ -112,3 +119,61 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+window.addEventListener("load", (e) => {
+
+const article = document.querySelector(".articles");
+
+data.forEach(data => {
+  
+  article.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
+
+
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  //define new elements
+  const article = document.createElement('div');
+  const title1 = document.createElement('h2');
+  const date1 = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const button = document.createElement('span');
+
+  //structure
+  article.appendChild(title1)
+  article.appendChild(date1)
+  article.appendChild(p1)
+  article.appendChild(p2)
+  article.appendChild(p3)
+  article.appendChild(button)
+
+  //class names
+  article.classList.add('article')
+  date1.classList.add('date')
+  button.classList.add('expandButton')
+
+
+  // set text content
+  
+  title1.textContent = title
+  date1.textContent = date
+  p1.textContent = firstParagraph
+  p2.textContent = secondParagraph
+  p3.textContent = thirdParagraph
+
+  button.addEventListener('click', e => {
+article.classlist.toggle('article-open')
+  })
+   return article
+  }
+ 
+//   <div class="article">
+//   <h2>{title of the article}</h2>
+//   <p class="date">{date of the article}</p>
+
+//   {three separate paragraph elements}
+
+//   <span class='expandButton'></span>
+// </div>
+
+})
